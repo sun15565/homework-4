@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>增强版异步寻宝游戏 - 动画演示</title>
+    <title>增强版异步寻宝游戏 - 完整演示</title>
     <style>
         :root {
             --primary: #2c3e50;
@@ -24,9 +24,9 @@
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #f7f3e9 0%, #e8d5b7 50%, #d4c4a8 100%);
             min-height: 100vh;
-            color: var(--light);
+            color: #5d4e37;
             overflow-x: hidden;
         }
 
@@ -45,7 +45,7 @@
         .header h1 {
             font-size: 2.5rem;
             margin-bottom: 10px;
-            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            background: linear-gradient(45deg, #8b4513, #d2691e);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -70,41 +70,46 @@
         }
 
         .map-container {
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.3);
             border-radius: 15px;
             padding: 20px;
             backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(139, 69, 19, 0.3);
             position: relative;
             overflow: hidden;
+            box-shadow: 0 8px 32px rgba(139, 69, 19, 0.1);
         }
 
         .map {
             width: 100%;
             height: 400px;
-            background: linear-gradient(45deg, #2c3e50, #34495e);
+            background: linear-gradient(45deg, #8b7355, #a68b5b, #8b7355);
             border-radius: 10px;
             position: relative;
             overflow: hidden;
+            border: 2px solid #8b4513;
         }
 
         .location {
             position: absolute;
-            width: 20px;
-            height: 20px;
+            width: 30px;
+            height: 30px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 12px;
+            font-size: 16px;
             font-weight: bold;
             cursor: pointer;
             transition: all 0.3s ease;
             animation: pulse 2s infinite;
+            border: 2px solid #fff;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
         }
 
         .location:hover {
-            transform: scale(1.2);
+            transform: scale(1.3);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
         }
 
         .location.library {
@@ -172,15 +177,16 @@
         }
 
         .controls {
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.3);
             border-radius: 15px;
             padding: 20px;
             backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(139, 69, 19, 0.3);
+            box-shadow: 0 8px 32px rgba(139, 69, 19, 0.1);
         }
 
         .btn {
-            background: linear-gradient(45deg, var(--secondary), var(--accent));
+            background: linear-gradient(45deg, #8b4513, #d2691e);
             color: white;
             border: none;
             padding: 12px 24px;
@@ -190,7 +196,7 @@
             font-weight: bold;
             margin: 5px;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 4px 15px rgba(139, 69, 19, 0.3);
         }
 
         .btn:hover {
@@ -302,6 +308,54 @@
             animation: confetti-fall 3s linear infinite;
         }
 
+        .code-section {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        .code-section h3 {
+            margin-bottom: 15px;
+            color: var(--secondary);
+        }
+
+        .code-block {
+            background: #1e1e1e;
+            border-radius: 8px;
+            padding: 15px;
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        .exploration-section {
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 15px;
+            padding: 20px;
+            margin-top: 20px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(139, 69, 19, 0.3);
+            box-shadow: 0 8px 32px rgba(139, 69, 19, 0.1);
+        }
+
+        .exploration-guide ul {
+            margin: 15px 0;
+            padding-left: 20px;
+        }
+
+        .exploration-guide li {
+            margin: 10px 0;
+            line-height: 1.6;
+            color: #5d4e37;
+        }
+
+        .exploration-guide p {
+            margin: 10px 0;
+            color: #5d4e37;
+        }
+
         @keyframes fadeInDown {
             from {
                 opacity: 0;
@@ -377,7 +431,7 @@
     <div class="container">
         <div class="header">
             <h1>🏴‍☠️ 增强版异步寻宝游戏</h1>
-            <p>使用 async/await 实现的动画寻宝冒险</p>
+            <p>使用 async/await 实现的动画寻宝冒险 - 包含多种情节和挑战</p>
         </div>
 
         <div class="game-area">
@@ -396,7 +450,7 @@
 
             <div class="controls">
                 <h3>🎮 游戏控制</h3>
-                <button class="btn" id="startBtn">开始寻宝</button>
+                <button class="btn" id="startBtn">自动寻宝</button>
                 <button class="btn" id="resetBtn" disabled>重新开始</button>
                 
                 <div class="progress-container">
@@ -428,6 +482,27 @@
                 <div class="log-container" id="logContainer">
                     <div class="log-entry info">准备开始寻宝冒险...</div>
                 </div>
+            </div>
+        </div>
+
+        <div class="exploration-section">
+            <h3>🗺️ 探索指南</h3>
+            <div class="exploration-guide">
+                <p><strong>🎮 两种游戏模式：</strong></p>
+                <ul>
+                    <li><strong>点击探索模式：</strong>直接点击地图上的地点进行探索</li>
+                    <li><strong>自动寻宝模式：</strong>点击"自动寻宝"按钮观看完整流程</li>
+                </ul>
+                <p><strong>📍 可探索的地点：</strong></p>
+                <ul>
+                    <li>📚 <strong>古老图书馆</strong> - 寻找线索</li>
+                    <li>🏘️ <strong>村庄</strong> - 招募冒险同伴</li>
+                    <li>🌋 <strong>火山</strong> - 寻找红宝石 (70%成功率)</li>
+                    <li>🌊 <strong>深海</strong> - 寻找蓝宝石 (60%成功率)</li>
+                    <li>🌲 <strong>森林</strong> - 寻找绿宝石 (50%成功率)</li>
+                    <li>🏛️ <strong>神庙</strong> - 需要3颗宝石才能开启</li>
+                </ul>
+                <p><strong>💡 探索提示：</strong>收集齐3颗宝石后，点击神庙即可获得最终宝藏！</p>
             </div>
         </div>
     </div>
@@ -831,12 +906,126 @@
             elements.confetti.innerHTML = '';
         }
 
+        // 点击探索功能
+        function addLocationClickHandlers() {
+            const locations = document.querySelectorAll('.location');
+            locations.forEach((location, index) => {
+                location.addEventListener('click', async () => {
+                    if (gameState.isRunning) return;
+                    
+                    const locationName = location.title;
+                    const locationType = location.className.split(' ')[1];
+                    
+                    utils.log(`🗺️ 探索 ${locationName}...`, 'info');
+                    
+                    // 移动角色到点击的位置
+                    const rect = location.getBoundingClientRect();
+                    const mapRect = document.querySelector('.map').getBoundingClientRect();
+                    const x = ((rect.left + rect.width/2 - mapRect.left) / mapRect.width) * 100;
+                    const y = ((rect.top + rect.height/2 - mapRect.top) / mapRect.height) * 100;
+                    
+                    await utils.moveHero(x, y);
+                    
+                    // 根据地点类型执行不同的探索
+                    switch(locationType) {
+                        case 'library':
+                            await exploreLibrary();
+                            break;
+                        case 'village':
+                            await exploreVillage();
+                            break;
+                        case 'volcano':
+                            await exploreVolcano();
+                            break;
+                        case 'ocean':
+                            await exploreOcean();
+                            break;
+                        case 'forest':
+                            await exploreForest();
+                            break;
+                        case 'temple':
+                            await exploreTemple();
+                            break;
+                    }
+                });
+            });
+        }
+
+        // 探索各个地点的函数
+        async function exploreLibrary() {
+            utils.log('📚 在图书馆中寻找线索...', 'info');
+            await utils.sleep(1000);
+            utils.log('找到了一本古老的书籍！', 'success');
+            utils.log('线索：寻找三颗宝石才能开启神庙', 'info');
+        }
+
+        async function exploreVillage() {
+            utils.log('🏘️ 在村庄中寻找同伴...', 'info');
+            await utils.sleep(1000);
+            const companions = ['战士', '法师', '盗贼', '治疗师'];
+            const companion = companions[Math.floor(Math.random() * companions.length)];
+            gameState.companions++;
+            utils.updateStats();
+            utils.log(`招募到了${companion}！`, 'success');
+        }
+
+        async function exploreVolcano() {
+            utils.log('🌋 在火山中寻找红宝石...', 'info');
+            await utils.sleep(1000);
+            if (utils.randomChance(0.7)) {
+                gameState.gems++;
+                utils.updateStats();
+                utils.log('成功获得红宝石！', 'success');
+            } else {
+                utils.log('火山太危险了，没有找到红宝石...', 'warning');
+            }
+        }
+
+        async function exploreOcean() {
+            utils.log('🌊 在深海中寻找蓝宝石...', 'info');
+            await utils.sleep(1000);
+            if (utils.randomChance(0.6)) {
+                gameState.gems++;
+                utils.updateStats();
+                utils.log('成功获得蓝宝石！', 'success');
+            } else {
+                utils.log('深海太深了，没有找到蓝宝石...', 'warning');
+            }
+        }
+
+        async function exploreForest() {
+            utils.log('🌲 在森林中寻找绿宝石...', 'info');
+            await utils.sleep(1000);
+            if (utils.randomChance(0.5)) {
+                gameState.gems++;
+                utils.updateStats();
+                utils.log('成功获得绿宝石！', 'success');
+            } else {
+                utils.log('森林太茂密了，没有找到绿宝石...', 'warning');
+            }
+        }
+
+        async function exploreTemple() {
+            if (gameState.gems < 3) {
+                utils.log('🏛️ 神庙需要三颗宝石才能开启！', 'warning');
+                utils.log(`当前宝石数量：${gameState.gems}/3`, 'info');
+                return;
+            }
+            
+            utils.log('🏛️ 使用三颗宝石开启神庙...', 'info');
+            await utils.sleep(1000);
+            utils.log('神庙大门缓缓开启！', 'success');
+            utils.log('恭喜！你找到了传说中的宝藏！', 'success');
+            utils.createConfetti();
+        }
+
         // 事件监听
         elements.startBtn.addEventListener('click', runTreasureHunt);
         elements.resetBtn.addEventListener('click', resetGame);
 
         // 初始化
         utils.updateStats();
+        addLocationClickHandlers();
     </script>
 </body>
 </html>
